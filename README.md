@@ -61,3 +61,11 @@ Micro-Skill-Builder is a gamified micro-learning platform that helps users learn
 - **File Handling**: Multer
 - **Security**: express-rate-limit, Helmet
 - **Testing**: Postman / Thunder Client
+
+
+post  courses  http://localhost:2025/api/courses
+
+Get instructor courses GET http://localhost:2025/api/courses/instructor/my-courses
+
+get users/leaderboard  https://micro-skill-builder.onrender.com/api/users/leaderboard
+

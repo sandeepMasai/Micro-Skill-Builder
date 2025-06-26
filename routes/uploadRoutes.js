@@ -7,6 +7,7 @@ const { storage } = require('../utils/cloudinary');
 const router = express.Router();
 const upload = multer({ storage });
 
-router.post('/single', auth, upload.single('file'), uploadSingleFile);
+router.post('/single', auth, upload.single('coverImage'), uploadSingleFile);
+
 
 module.exports = router;
