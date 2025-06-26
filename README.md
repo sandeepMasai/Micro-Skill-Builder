@@ -20,6 +20,7 @@ Micro-Skill-Builder is a gamified micro-learning platform that helps users learn
 - **Submission**: Foundation for peer review and submission tracking
 
 ### 📡 API Routes
+  https://micro-skill-builder.onrender.com/api/test test api backen run
 - **Auth**: Register, login, profile management
 - **Courses**: CRUD operations for instructors
 - **Enrollments**: Enroll and track course progress
