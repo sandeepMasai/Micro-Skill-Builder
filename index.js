@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./config/db');
 const dotenv = require('dotenv');
 const path = require('path');
+const connectDB = require('./config/db');
 
-// Load environment variables
+// dotenv variables
 dotenv.config();
 
 // Connect to MongoDB
@@ -21,38 +21,34 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
-const authRoutes = require('./routes/auth');
-const courseRoutes = require('./routes/courses');
-const enrollmentRoutes = require('./routes/enrollments');
-const moduleRoutes = require('./routes/modules');
-const userRoutes = require('./routes/users');
-const contactRoutes = require('./routes/contact');
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/courses', require('./routes/courseRoutes'));
+app.use('/api/enrollments', require('./routes/enrollmentRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/contact', require('./routes/contact'));
+app.use('/api/content', require('./routes/contentRoutes'));
+app.use('/api/upload', require('./routes/uploadRoutes'));
 
-app.use('/api/auth', authRoutes);
-app.use('/api/courses', courseRoutes);
-app.use('/api/enrollments', enrollmentRoutes);
-app.use('/api/modules', moduleRoutes);
-app.use('/api/users', userRoutes);
-//email
-app.use('/api/contact', contactRoutes);
-
-
-// start route is running
+// check working route
 app.get('/api/test', (req, res) => {
   res.json({ status: 'OK', message: 'SkillForge API is running!' });
 });
 
-// Error handler
+// 404 fallback
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found' });
+});
+
+// Global error handler
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  console.error('Server Error:', err.stack);
   res.status(500).json({
     error: 'Something went wrong!',
     message: process.env.NODE_ENV === 'development' ? err.message : 'Internal server error',
   });
 });
 
-
-
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
