@@ -69,3 +69,40 @@ Get instructor courses GET http://localhost:2025/api/courses/instructor/my-cours
 
 get users/leaderboard  https://micro-skill-builder.onrender.com/api/users/leaderboard
 
+
+
+
+
+
+
+
+
+
+# Database
+MONGODB_URI= self atles url
+PORT= self use 
+# JWT Secret 
+JWT_SECRET= youre own secret
+
+# Server Configuration
+
+NODE_ENV=development
+# File Upload Configuration
+MAX_FILE_SIZE=5242880
+
+UPLOAD_PATH=uploads
+UPLOAD_DIR=uploads
+
+
+# Email Configuration (for future features)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT= self use
+SMTP_USER= self email using Google App 
+SMTP_PASS= self use google app password
+
+# Cloudinary Configuration (optional - for production file storage) 
+create own  CLOUDINARY api key and use 
+CLOUDINARY_CLOUD_NAME=#####
+CLOUDINARY_API_KEY=######
+CLOUDINARY_API_SECRET=######
+
