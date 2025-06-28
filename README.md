@@ -75,34 +75,19 @@ get users/leaderboard  https://micro-skill-builder.onrender.com/api/users/leader
 
 
 
-
-
-
-# Database
-MONGODB_URI= self atles url
-PORT= self use 
-# JWT Secret 
-JWT_SECRET= youre own secret
-
-# Server Configuration
-
-NODE_ENV=development
-# File Upload Configuration
-MAX_FILE_SIZE=5242880
-
-UPLOAD_PATH=uploads
-UPLOAD_DIR=uploads
-
-
-# Email Configuration (for future features)
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT= self use
-SMTP_USER= self email using Google App 
-SMTP_PASS= self use google app password
-
-# Cloudinary Configuration (optional - for production file storage) 
-create own  CLOUDINARY api key and use 
-CLOUDINARY_CLOUD_NAME=#####
-CLOUDINARY_API_KEY=######
-CLOUDINARY_API_SECRET=######
-
+| Variable                | Description                                | Example / Notes                                                       |
+| ----------------------- | ------------------------------------------ | --------------------------------------------------------------------- |
+| `MONGODB_URI`           | MongoDB connection string                  | `mongodb+srv://<username>:<password>@cluster0.xyz`                    |
+| `PORT`                  | Port number the server will run on         | `5000`, `3000`, etc.                                                  |
+| `JWT_SECRET`            | Secret key for JWT authentication          | Use a long, secure, random string                                     |
+| `NODE_ENV`              | Server environment                         | `development`, `production`                                           |
+| `MAX_FILE_SIZE`         | Max upload file size in bytes              | `5242880` (5MB)                                                       |
+| `UPLOAD_PATH`           | Directory to store uploaded files          | `uploads`                                                             |
+| `UPLOAD_DIR`            | Alias for upload directory                 | `uploads`                                                             |
+| `SMTP_HOST`             | SMTP server address                        | `smtp.gmail.com`                                                      |
+| `SMTP_PORT`             | Port for SMTP                              | `587`, `465`                                                          |
+| `SMTP_USER`             | SMTP email address (App password required) | `your-email@gmail.com`                                                |
+| `SMTP_PASS`             | App password for SMTP user                 | Use [Google App Passwords](https://myaccount.google.com/apppasswords) |
+| `CLOUDINARY_CLOUD_NAME` | Cloudinary account cloud name              | From your Cloudinary dashboard                                        |
+| `CLOUDINARY_API_KEY`    | Cloudinary API key                         | From your Cloudinary dashboard                                        |
+| `CLOUDINARY_API_SECRET` | Cloudinary API secret                      | Keep this secure and private                                          |
