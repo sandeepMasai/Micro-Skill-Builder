@@ -21,11 +21,12 @@ const courseSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
-   category: {
-    type: String,
-    required: true,
-    trim: true
-  },
+  category: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: 'Category',
+  required: true
+},
+
   days: [{
     dayNumber: {
       type: Number,
