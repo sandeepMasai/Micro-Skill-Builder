@@ -2,7 +2,7 @@ const Course = require('../models/Course');
 const Enrollment = require('../models/Enrollment');
 const { awardXP } = require('../utils/gamification');
 
-// GET /:courseId/day/:dayNumber 
+// courseId/day/:dayNumber 
 exports.getDayContent = async (req, res) => {
   try {
     const { courseId, dayNumber } = req.params;
@@ -48,7 +48,7 @@ exports.getDayContent = async (req, res) => {
   }
 };
 
-// POST /:courseId/day/:dayNumber/quiz — Submit quiz answer
+// courseId/day/:dayNumber/quiz — Submit quiz answer
 exports.submitQuizAnswer = async (req, res) => {
   try {
     const { courseId, dayNumber } = req.params;
