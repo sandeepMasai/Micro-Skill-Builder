@@ -4,7 +4,7 @@ const path = require('path');
 // Get all published courses
 exports.getAllCourses = async (req, res) => {
   try {
-    const { page = 1, limit = 10, search } = req.query;
+    const { page = 1, limit = 10, search, category } = req.query;
     const query = { isPublished: true };
 
     if (search) {
@@ -12,6 +12,10 @@ exports.getAllCourses = async (req, res) => {
         { title: { $regex: search, $options: 'i' } },
         { description: { $regex: search, $options: 'i' } }
       ];
+    }
+
+    if (category) {
+      query.category = category;
     }
 
     const courses = await Course.find(query)
@@ -26,7 +30,7 @@ exports.getAllCourses = async (req, res) => {
     res.json({
       courses,
       totalPages: Math.ceil(total / limit),
-      currentPage: page,
+      currentPage: Number(page),
       total
     });
   } catch (error) {
@@ -63,19 +67,30 @@ exports.getCourseById = async (req, res) => {
 };
 
 // Create new course
+
 exports.createCourse = async (req, res) => {
   try {
-    const { title, description } = req.body;
+    const { title, description, category, days } = req.body;
 
-    if (!title || !description) {
-      return res.status(400).json({ error: 'Title and description are required' });
+    if (!title || !description || !category) {
+      return res.status(400).json({ error: 'Title, description, and category are required' });
+    }
+
+    let parsedDays = [];
+    if (days) {
+      parsedDays = typeof days === 'string' ? JSON.parse(days) : days;
+
+      if (parsedDays.length > 5) {
+        return res.status(400).json({ error: 'Course cannot have more than 5 days' });
+      }
     }
 
     const courseData = {
       title,
       description,
+      category,
       instructor: req.user._id,
-      days: []
+      days: parsedDays
     };
 
     if (req.file) {
@@ -93,6 +108,7 @@ exports.createCourse = async (req, res) => {
   }
 };
 
+
 // Update course
 exports.updateCourse = async (req, res) => {
   try {
@@ -103,10 +119,11 @@ exports.updateCourse = async (req, res) => {
       return res.status(403).json({ error: 'Not authorized' });
     }
 
-    const { title, description, days, isPublished } = req.body;
+    const { title, description, days, isPublished, category } = req.body;
 
     if (title) course.title = title;
     if (description) course.description = description;
+    if (category) course.category = category;
     if (days) course.days = JSON.parse(days);
     if (typeof isPublished === 'boolean') course.isPublished = isPublished;
 
