@@ -29,6 +29,7 @@ app.use('/api/contact', require('./routes/contact'));
 app.use('/api/content', require('./routes/contentRoutes'));
 app.use('/api/upload', require('./routes/uploadRoutes'));
 
+app.use('/api/categories',require('./routes/categoryRoutes'));
 // check working route
 app.get('/api/test', (req, res) => {
   res.json({ status: 'OK', message: 'SkillForge API is running!' });
