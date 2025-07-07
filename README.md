@@ -37,7 +37,7 @@ Deployment	Vercel / Netlify (Recommended)
 🌐 Backend Integration
 All frontend features are built to consume the API hosted at:
 
-https://micro-skill-builder.onrender.com/api
+https://micro-skill-builder.onrender.com/api/test
 
 Here are some key routes:
 
