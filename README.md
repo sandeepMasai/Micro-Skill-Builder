@@ -1,7 +1,7 @@
  Micro-Skill-Builder Frontend
 Micro-Skill-Builder is a gamified micro-learning platform that helps users learn efficiently through short, structured courses. This frontend project is the user-facing interface of the platform, enabling learners, instructors, and admins to engage with the backend APIs in an intuitive and engaging way.
 
-🌐 Live API Base URL: https://micro-skill-builder.onrender.com/api
+🌐 Live API Base URL: https://stellular-kheer-f7c658.netlify.app/
 
 🚀 Key Features (Frontend)
 📚 Course Browsing & Enrollment
