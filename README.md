@@ -72,7 +72,7 @@ Create a .env file in the root:
 env
 Copy
 Edit
-VITE_API_BASE_URL=https://micro-skill-builder.onrender.com/api
+VITE_API_BASE_URL=https://stellular-kheer-f7c658.netlify.app/
 VITE_CLOUDINARY_UPLOAD_URL=https://api.cloudinary.com/v1_1/<your-cloud-name>/image/upload
 VITE_CLOUDINARY_UPLOAD_PRESET=<your-preset>
 🧪 How to Run Locally
@@ -80,7 +80,7 @@ bash
 Copy
 Edit
 # Clone the repo
-git clone https://github.com/your-username/micro-skill-builder-frontend.git
+git clone https://github.com/sandeepMasai/Micro-Skill-Builder.git
 cd micro-skill-builder-frontend
 
 # Install dependencies
