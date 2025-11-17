@@ -135,8 +135,8 @@ const uploadCourseFiles = (req, res, next) => {
 };
 
 router.get('/', getAllCourses);
-router.get('/:id', getCourseById);
 router.get('/instructor/my-courses', auth, authorize('instructor', 'admin'), getInstructorCourses);
+router.get('/:id', getCourseById);
 router.post('/', auth, authorize('instructor', 'admin'), uploadCourseFiles, createCourse);
 router.put('/:id', auth, authorize('instructor', 'admin'), uploadCourseFiles, updateCourse);
 router.delete('/:id', auth, authorize('instructor', 'admin'), deleteCourse);

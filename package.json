@@ -1,0 +1,23 @@
+{
+  "name": "micro-skill-builder-root",
+  "version": "1.0.0",
+  "description": "Micro Skill Builder - Root package for deployment",
+  "scripts": {
+    "install-backend": "cd backend && npm install",
+    "start-backend": "cd backend && npm start",
+    "build": "cd backend && npm install",
+    "start": "cd backend && npm start"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandeepMasai/Micro-Skill-Builder.git"
+  },
+  "keywords": ["skill-builder", "learning-platform"],
+  "author": "",
+  "license": "ISC"
+}
+
