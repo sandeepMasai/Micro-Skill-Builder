@@ -35,17 +35,35 @@ exports.register = async (req, res) => {
 
     await user.save();
 
-    await sendEmail(
+    // Send welcome email (non-blocking - don't fail registration if email fails)
+    sendEmail(
       user.email,
       'Welcome to SkillForge!',
       `<h2>Hi ${user.name},</h2><p>Thanks for joining <strong>SkillForge</strong> 🚀<br/>Let your learning journey begin!</p>`
-    );
+    ).catch(err => {
+      console.error('Failed to send welcome email:', err.message);
+      // Don't throw - registration should succeed even if email fails
+    });
 
     res.status(201).json({ message: 'User registered successfully' });
 
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Server error during registration' });
+    console.error('Registration error:', error);
+    
+    // Handle specific error types
+    if (error.code === 11000) {
+      return res.status(400).json({ error: 'User already exists with this email' });
+    }
+    
+    if (error.name === 'ValidationError') {
+      const messages = Object.values(error.errors).map(err => err.message).join(', ');
+      return res.status(400).json({ error: messages });
+    }
+    
+    res.status(500).json({ 
+      error: 'Server error during registration',
+      message: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
   }
 };
 

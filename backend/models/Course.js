@@ -13,10 +13,22 @@ const courseSchema = new mongoose.Schema({
     content: {
       videoUrl: String,
       text: String,
+      pdfFiles: [{
+        name: String,
+        url: String,
+        size: Number
+      }],
+      notes: String,
+      tasks: [{
+        title: String,
+        description: String,
+        completed: { type: Boolean, default: false }
+      }],
       quiz: {
         question: String,
         options: [String],
-        correctAnswer: Number
+        correctAnswer: Number,
+        explanation: String
       }
     }
   }],

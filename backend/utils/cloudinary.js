@@ -29,4 +29,27 @@ const videoStorage = new CloudinaryStorage({
   },
 });
 
-module.exports = { cloudinary, imageStorage, videoStorage };
+// 👤 For User Avatars
+const avatarStorage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'user_avatars',
+    allowed_formats: ['jpg', 'png', 'jpeg', 'gif'],
+    resource_type: 'image',
+    transformation: [
+      { width: 400, height: 400, crop: 'fill', gravity: 'face' }
+    ],
+  },
+});
+
+// 📄 For PDF Files
+const pdfStorage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'course_pdfs',
+    allowed_formats: ['pdf'],
+    resource_type: 'raw',
+  },
+});
+
+module.exports = { cloudinary, imageStorage, videoStorage, avatarStorage, pdfStorage };

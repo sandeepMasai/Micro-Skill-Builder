@@ -44,6 +44,11 @@ const userSchema = new mongoose.Schema({
   avatar: {
     type: String,
     default: ''
+  },
+  bio: {
+    type: String,
+    default: '',
+    maxlength: 500
   }
 }, {
   timestamps: true

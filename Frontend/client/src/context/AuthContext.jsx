@@ -1,4 +1,3 @@
-
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import API from '../Api/axios';
 
@@ -92,6 +91,10 @@ export const AuthProvider = ({ children }) => {
     setAuthHeader(null);
   };
 
+  const updateUser = (userData) => {
+    setUser(userData);
+  };
+
   const isAuthenticated = !!user;
 
   return (
@@ -102,6 +105,8 @@ export const AuthProvider = ({ children }) => {
         login,
         register,
         logout,
+        updateUser,
+        setUser,
         isLoading,
       }}
     >
