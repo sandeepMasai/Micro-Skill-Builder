@@ -1,7 +1,7 @@
  Micro-Skill-Builder Frontend
 Micro-Skill-Builder is a gamified micro-learning platform that helps users learn efficiently through short, structured courses. This frontend project is the user-facing interface of the platform, enabling learners, instructors, and admins to engage with the backend APIs in an intuitive and engaging way.
 
-🌐 Live API Base URL: https://stellular-kheer-f7c658.netlify.app/
+🌐 Live API Base URL: https://micro-skill-builder-frontend.onrender.com
 
 🚀 Key Features (Frontend)
 📚 Course Browsing & Enrollment
@@ -72,7 +72,7 @@ Create a .env file in the root:
 env
 Copy
 Edit
-VITE_API_BASE_URL=https://stellular-kheer-f7c658.netlify.app/
+VITE_API_BASE_URL=https://micro-skill-builder-frontend.onrender.com
 VITE_CLOUDINARY_UPLOAD_URL=https://api.cloudinary.com/v1_1/<your-cloud-name>/image/upload
 VITE_CLOUDINARY_UPLOAD_PRESET=<your-preset>
 🧪 How to Run Locally
